@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>輸入密碼(多次錯誤會鎖定5分鐘)</title>
+    <title>密碼驗證</title>
     <style>
         body {
             display: flex;
@@ -57,7 +57,6 @@
             overflow: hidden;
             border-radius: 8px;
             will-change: transform;
-            display: none;
         }
         iframe {
             width: 100%;
@@ -77,8 +76,8 @@
 
     <div class="content" id="contentBox">
         <h2>歡迎進入PPT系統</h2>
-        <img id="wedImage" src="wed.jpg" alt="這是版權聲明">
-        <div class="embed-container" id="canvaEmbed">
+<img src="https://robloxcooper6666.github.io/cooperchenwed/wed.jpg" alt="這是版權聲明">
+        <div class="embed-container">
             <iframe loading="lazy" src="https://www.canva.com/design/DAGd0mEVfSg/pom_hqLGpPGX7iFWFiaxMg/view?embed" allowfullscreen></iframe>
         </div>
     </div>
@@ -90,10 +89,6 @@
             if (inputPassword === correctPassword) {
                 document.getElementById("loginBox").style.display = "none";
                 document.getElementById("contentBox").style.display = "block";
-                setTimeout(() => {
-                    document.getElementById("wedImage").style.display = "none";
-                    document.getElementById("canvaEmbed").style.display = "block";
-                }, 30000); // 30 秒後切換顯示 Canva
             } else {
                 document.getElementById("message").textContent = "密碼錯誤，請再試一次！";
             }
