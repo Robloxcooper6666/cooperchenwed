@@ -70,7 +70,7 @@
     <div class="container" id="loginBox">
         <h2>請輸入密碼</h2>
         <input type="password" id="password" placeholder="輸入密碼">
-        email icloud
+        密碼就是沒有密碼
         <br>
         <button onclick="checkPassword()" id="submitBtn">提交</button>
         <p id="message" class="error"></p>
@@ -86,7 +86,7 @@
 
     <script>
         function checkPassword() {
-            const correctPassword = "cooper.chen.1103@icloud.com";
+            const correctPassword = "";
             const inputPassword = document.getElementById("password").value;
             if (inputPassword === correctPassword) {
                 document.getElementById("loginBox").style.display = "none";
