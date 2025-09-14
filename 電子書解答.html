@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>國中電子教科書下載</title>
+  <style>
+    /* 全域樣式 */
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Microsoft JhengHei", sans-serif;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                  url("https://memeprod.ap-south-1.linodeobjects.com/user-maker/e8a6d6307b754b79223efa8bcc6b741f.gif") center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow-x: hidden;
+    }
+
+    /* 半透明遮罩 */
+    #overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      animation: fadeIn 0.5s ease forwards;
+    }
+
+    /* 彈窗 */
+    #popup {
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(15px);
+      padding: 40px 30px;
+      border-radius: 20px;
+      text-align: center;
+      max-width: 360px;
+      width: 90%;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+      transform: scale(0.8);
+      animation: popIn 0.4s ease forwards;
+    }
+
+    #popup h2 {
+      margin-bottom: 15px;
+      font-size: 24px;
+      color: #222;
+    }
+
+    #popup p {
+      margin-bottom: 20px;
+      font-size: 16px;
+      color: #444;
+    }
+
+    #popup button {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    #popup button:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    /* 主按鈕容器 */
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      width: 90%;
+      max-width: 1200px;
+      padding: 40px 20px;
+    }
+
+    .link-btn {
+      display: block;
+      padding: 18px 0;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(12px);
+      color: white;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    .link-btn:hover {
+      background: rgba(255,255,255,0.3);
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    }
+
+    /* 動畫效果 */
+    @keyframes popIn {
+      0% { transform: scale(0.7); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @media (max-width: 500px) {
+      #popup h2 { font-size: 20px; }
+      #popup button { padding: 10px 20px; font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- 彈窗 -->
+  <div id="overlay">
+    <div id="popup">
+      <h2>國中電子教科書下載</h2>
+      <p>點擊「開始」進入下載頁面</p>
+      <button onclick="closePopup()">開始</button>
+    </div>
+  </div>
+
+  <!-- 主按鈕 -->
+  <div class="container" id="mainContent" style="display:none;">
+    <a href="https://dl.hle.com.tw/114%E4%B8%8A/%E5%9C%8B%E4%B8%AD/04%E8%8B%B1%E8%AA%9E/%E9%9B%BB%E5%AD%90%E6%9B%B8/114%E7%BF%B0%E6%9E%97%E5%9C%8B%E4%B8%AD%E8%8B%B1%E8%AA%9E1%E4%B8%8A%E9%9B%BB%E5%AD%90%E6%95%99%E7%A7%91%E6%9B%B8.ISO" class="link-btn" target="_blank">翰林英語 1 上</a>
+    <a href="https://dl.hle.com.tw/114%E4%B8%8A/%E5%9C%8B%E4%B8%AD/05%E6%95%B8%E5%AD%B8/%E9%9B%BB%E5%AD%90%E6%9B%B8/114%E7%BF%B0%E6%9E%97%E5%9C%8B%E4%B8%AD%E6%95%B8%E5%AD%B81%E4%B8%8A%E9%9B%BB%E5%AD%90%E6%95%99%E7%A7%91%E6%9B%B8.iso" class="link-btn" target="_blank">翰林數學 1 上</a>
+    <a href="https://dl.hle.com.tw/114%E4%B8%8A/%E5%9C%8B%E4%B8%AD/07%E7%A4%BE%E6%9C%83/%E9%9B%BB%E5%AD%90%E6%9B%B8/114%E7%BF%B0%E6%9E%97%E5%9C%8B%E4%B8%AD%E5%85%AC%E6%B0%911%E4%B8%8A%E9%9B%BB%E5%AD%90%E6%95%99%E7%A7%91%E6%9B%B8.iso" class="link-btn" target="_blank">翰林公民 1 上</a>
+    <a href="https://digitalmaster.knsh.com.tw/resource3/%E5%9C%8B%E4%B8%AD/114%E4%B8%8A/01_%E5%9C%8B%E6%96%87_ch/01_1%E5%B9%B4%E7%B4%9A/01_%E9%9B%BB%E5%AD%90%E6%9B%B8/01_%E9%9B%BB%E8%85%A6%E7%89%88/114%E5%9C%8B%E4%B8%AD%E5%9C%8B%E6%96%871%E4%B8%8A%E9%9B%BB%E5%AD%90%E6%9B%B8_0910%E6%9B%B4%E6%96%B0%E5%91%A8%E9%82%8A%E8%B3%87%E6%BA%90%E9%81%B8%E5%96%AE.iso" class="link-btn" target="_blank">國中國文 1 上</a>
+    <a href="https://digitalmaster.knsh.com.tw/resource3/%E5%9C%8B%E4%B8%AD/114%E4%B8%8A/04_%E8%87%AA%E7%84%B6_na/01_1%E5%B9%B4%E7%B4%9A/01_%E9%9B%BB%E5%AD%90%E6%9B%B8/01_%E9%9B%BB%E8%85%A6%E7%89%88/00_114%E5%9C%8B%E4%B8%AD%E8%87%AA%E7%84%B61%E4%B8%8A%E9%9B%BB%E5%AD%90%E6%9B%B8.iso" class="link-btn" target="_blank">國中自然 1 上</a>
+    <a href="https://dl.hle.com.tw/114%E4%B8%8A/%E5%9C%8B%E4%B8%AD/07%E7%A4%BE%E6%9C%83/%E9%9B%BB%E5%AD%90%E6%9B%B8/114%E7%BF%B0%E6%9E%97%E5%9C%8B%E4%B8%AD%E6%AD%B7%E5%8F%B21%E4%B8%8A%E9%9B%BB%E5%AD%90%E6%95%99%E7%A7%91%E6%9B%B8.iso" class="link-btn" target="_blank">翰林歷史 1 上</a>
+    <a href="https://dl.hle.com.tw/114%E4%B8%8A/%E5%9C%8B%E4%B8%AD/07%E7%A4%BE%E6%9C%83/%E9%9B%BB%E5%AD%90%E6%9B%B8/114%E7%BF%B0%E6%9E%97%E5%9C%8B%E4%B8%AD%E5%9C%B0%E7%90%861%E4%B8%8A%E9%9B%BB%E5%AD%90%E6%95%99%E7%A7%91%E6%9B%B8.iso" class="link-btn" target="_blank">翰林地理 1 上</a>
+    <a href="https://dl.hle.com.tw/114%E4%B8%8A/%E5%9C%8B%E4%B8%AD/08%E8%97%9D%E8%A1%93/%E9%9B%BB%E5%AD%90%E6%9B%B8/114%E7%BF%B0%E6%9E%97%E5%9C%8B%E4%B8%AD%E9%9F%B3%E6%A8%821%E4%B8%8A%E9%9B%BB%E5%AD%90%E6%95%99%E7%A7%91%E6%9B%B8.iso" class="link-btn" target="_blank">翰林音樂 1 上</a>
+    <a href="https://dl.hle.com.tw/114%E4%B8%8A/%E5%9C%8B%E4%B8%AD/10%E5%81%A5%E9%AB%94/%E9%9B%BB%E5%AD%90%E6%9B%B8/114%E7%BF%B0%E6%9E%97%E5%9C%8B%E4%B8%AD%E5%81%A5%E9%AB%941%E4%B8%8A%E9%9B%BB%E5%AD%90%E6%95%99%E7%A7%91%E6%9B%B8.iso" class="link-btn" target="_blank">翰林健體 1 上</a>
+    <a href="https://dl.hle.com.tw/114%E4%B8%8A/%E5%9C%8B%E4%B8%AD/09%E7%B6%9C%E5%90%88/%E9%9B%BB%E5%AD%90%E6%9B%B8/114%E7%BF%B0%E6%9E%97%E5%9C%8B%E4%B8%AD%E7%B6%9C%E5%90%881%E4%B8%8A%E9%9B%BB%E5%AD%90%E6%95%99%E7%A7%91%E6%9B%B8.iso" class="link-btn" target="_blank">翰林綜合 1 上</a>
+  </div>
+
+  <script>
+    function closePopup() {
+      document.getElementById("overlay").style.display = "none";
+      document.getElementById("mainContent").style.display = "grid";
+    }
+  </script>
+</body>
+<!-- 在 body 最後加入 -->
+<div id="creditBox">CC | GPT 製作</div>
+
+<style>
+  #creditBox {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    padding: 8px 14px;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    font-size: 14px;
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.3);
+    z-index: 9999;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  #creditBox:hover {
+    background: rgba(255,255,255,0.3);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  }
+</style>
+
+</html>
